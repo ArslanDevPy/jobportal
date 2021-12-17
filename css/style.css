@@ -1,0 +1,87 @@
+.fort-nav-item {
+  font-weight: bold;
+}
+
+.active a {
+  color: orange !important;
+}
+
+.fort-nav-item :hover {
+  color: orange !important;
+}
+
+.nav-item a {
+  text-transform: uppercase;
+}
+
+.find-color {
+  color: orange;
+}
+
+.btn-outline-warning {
+  font-weight: bold;
+  color: black;
+}
+
+.search-btn-color {
+  color: #154d68;
+}
+.search-btn-color:hover {
+  color: white;
+}
+
+.padding-custome {
+  padding-top: 75px;
+  padding-bottom: 200px;
+}
+
+.form-control:focus {
+  border-color: orange !important;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.offset-md-3 #typeing .padding-find .text-center .potalcolor {
+  font-weight: bold;
+  color: orange;
+}
+
+.padding-find {
+  padding: 50px;
+}
+
+.fort-nav-item:hover {
+  color: orange !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .change-text-size {
+    font-size: 20px;
+  }
+
+  .change-text-size2 {
+    font-size: medium;
+  }
+
+  .nav-setting {
+    padding-left: 20px;
+  }
+
+  .image-size-set {
+    height: 80px;
+    width: 60px;
+  }
+}
+
+.set-nav-itme-font-size {
+  font-size: 12px;
+}
+
+.image-size-set {
+  height: 220px;
+  width: 190px;
+}
+
+.login-form-padding {
+  padding-top: 200px;
+}

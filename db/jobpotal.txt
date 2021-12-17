@@ -1,0 +1,111 @@
+CREATE DATABASE jobportal;
+
+CREATE TABLE users(
+    id VARCHAR(40) not null primary key DEFAULT (uuid()),
+    first_name varchar(50) NOT NULL,
+    last_name varchar(50) NOT NULL,
+    email varchar(100) UNIQUE NOT NULL,
+    username varchar(30) UNIQUE NOT NULL,
+    password varchar(255) NOT NULL,
+    address varchar(555),
+    jobselect varchar(255),
+    country varchar(60),
+    city varchar(100),
+    is_verify boolean DEFAULT FALSE,
+    is_active boolean DEFAULT TRUE,
+    is_admin boolean DEFAULT FALSE,
+    gender varchar(30), 	
+    is_company boolean DEFAULT FALSE,
+    user_img varchar(255) DEFAULT "default.png",
+    user_cv varchar(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+    );
+
+
+CREATE TABLE category(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    title varchar(100) UNIQUE NOT NULL,
+    description varchar(800),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+    );
+
+
+CREATE TABLE job(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    title varchar(100) NOT NULL,
+    description varchar(800),
+    job_startdate DATETIME NOT NULL,
+    job_enddate DATETime NOT NUll,
+    image varchar(300),
+    cateid int,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+    userid varchar(100),
+    FOREIGN KEY (userid) REFERENCES users(id),
+    FOREIGN KEY (cateid) REFERENCES category(id)
+    );
+
+
+CREATE TABLE jobapply(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    jobid int,
+    is_select boolean DEFAULT FALSE,
+    is_padding boolean DEFAULT TRUE,
+    not_select boolean DEFAULT FALSE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+    userid varchar(100),
+    FOREIGN KEY (userid) REFERENCES users(id),
+    FOREIGN KEY (jobid) REFERENCES job(id)
+    );
+
+
+CREATE TABLE contact(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    first_name varchar(50) NOT NUll,
+    last_name varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
+    subject varchar(150) NOT NULL,
+    message varchar(500) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+    );
+
+
+
+CREATE TABLE Notification(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    title varchar(50) NOT NULL,
+    message varchar(500) NOT NULL,
+    userid varchar(80),
+    FOREIGN KEY (userid) REFERENCES users(id),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+    );
+
+CREATE TABLE reqadmin
+(
+    id int PRIMARY key AUTO_INCREMENT NOT NULL,
+    message varchar(255) Not NULL,
+    userid varchar(80),
+    FOREIGN KEY (userid) REFERENCES users(id),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+    );
+
+
+INSERT INTO `users`(`first_name`, `last_name`, `email`, `username`, `password`, `is_verify`, `is_active`,`is_admin`, `is_company`)
+VALUES 
+("Sohaib","Riaz","sohaib@gmail.com","Sohaib1","company",TRUE,FALSE,FALSE,TRUE),
+("Muhammad","Arslan","arslan@gmail.com","Arslan16","admin",TRUE,FALSE,TRUE,FALSE),
+("Ayeza","Shahid","ayeza@gmail.com","Ayeza1","user",TRUE,TRUE,FALSE,FALSE);
+
+INSERT INTO category(title, description) 
+VALUES 
+("PHP","PHP Description"),
+("Python","Python description"),
+("Django","Django description")
+
+https://www.canva.com/brand/join?token=kQO0XJFCYbPoFtdI75u8sw&referrer=team-invite
