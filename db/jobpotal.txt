@@ -98,14 +98,10 @@ CREATE TABLE reqadmin
 
 INSERT INTO `users`(`first_name`, `last_name`, `email`, `username`, `password`, `is_verify`, `is_active`,`is_admin`, `is_company`)
 VALUES 
-("Sohaib","Riaz","sohaib@gmail.com","Sohaib1","company",TRUE,FALSE,FALSE,TRUE),
-("Muhammad","Arslan","arslan@gmail.com","Arslan16","admin",TRUE,FALSE,TRUE,FALSE),
-("Ayeza","Shahid","ayeza@gmail.com","Ayeza1","user",TRUE,TRUE,FALSE,FALSE);
+("Muhammad","Arslan","arslan@gmail.com","admin","admin",TRUE,FALSE,TRUE,FALSE);
 
 INSERT INTO category(title, description) 
 VALUES 
 ("PHP","PHP Description"),
 ("Python","Python description"),
 ("Django","Django description")
-
-https://www.canva.com/brand/join?token=kQO0XJFCYbPoFtdI75u8sw&referrer=team-invite
